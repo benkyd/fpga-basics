@@ -1,0 +1,5 @@
+VGA_Test_Screen(
+	input wire [10:0] scan_pos_x,
+	input wire [10:0] scan_pos_y,
+	output wire [2:0] rgb,
+);
