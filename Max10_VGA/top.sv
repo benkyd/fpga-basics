@@ -12,6 +12,7 @@ module top (
 	
 	wire vsync_pulse, hsync_pulse;
 	
+	// 1111111111 = NO DRAW
 	wire [10:0] scan_pos_x;
 	wire [10:0] scan_pos_y;
 	

@@ -1,4 +1,8 @@
-module VGA_Signal_Gen(
+module VGA_Signal_Gen
+ #(parameter TOTAL_COLS  = 800, 
+   parameter TOTAL_ROWS  = 525,
+   parameter ACTIVE_COLS = 640, 
+   parameter ACTIVE_ROWS = 480)(
 	input wire pixel_clk,
 	output wire [10:0] scan_x,
 	output wire [10:0] scan_y,
@@ -30,5 +34,8 @@ module VGA_Signal_Gen(
 	// generate sync pulses
 	assign h_sync = ~(h_counter <= 96);
 	assign v_sync = ~(v_counter <= 2);
+	
+	assign scan_x = h_counter + 48;
+	assign scan_y = v_counter + 33;
 
 endmodule
