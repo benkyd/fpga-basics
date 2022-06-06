@@ -1,0 +1,8 @@
+module VGA_Controller(
+	input wire pixel_clk,
+	inout  logic [14:0] gpio_d,
+	output logic  [8:1] led
+};
+
+
+endmodule
