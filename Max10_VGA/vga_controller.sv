@@ -1,41 +1,34 @@
-module VGA_Signal_Gen
- #(parameter TOTAL_COLS  = 800, 
-   parameter TOTAL_ROWS  = 525,
-   parameter ACTIVE_COLS = 640, 
-   parameter ACTIVE_ROWS = 480)(
+module VGA_Signal_Gen(
 	input wire pixel_clk,
-	output wire [10:0] scan_x,
-	output wire [10:0] scan_y,
-	output wire h_sync,
-	output wire v_sync
+	output reg [9:0] hcounter,
+	output reg [9:0] vcounter,
+	output wire hsync,
+	output wire vsync
 );
 	
-	reg [9:0] h_counter;
-	reg [9:0] v_counter;
-	
-	// VGA 640 x 480 @ 60 Hz
-	// pixel_clk 25.175MHz
 	always @(posedge pixel_clk) begin
-		if (h_counter <= 800) begin
-			h_counter <= h_counter + 1;
-		end else begin
-			// reset scanline
-			h_counter <= 1'b0;
+		if(hcounter == 799) begin
 			
-			// step v_counter after hline
-			if (v_counter <= 525) begin
-				v_counter <= v_counter + 1;
-			end else begin
-				v_counter <= 1'b0;
-			end
+		hcounter <= 0;
+			
+		if(vcounter == 524)
+			vcounter <= 0;
+		else 
+			vcounter <= vcounter + 1'b1;
+		 
 		end
+		else
+			hcounter <= hcounter + 1'b1;
+	 
+		if (vcounter >= 490 && vcounter < 492) 
+			vsync <= 1'b0;
+		else
+			vsync <= 1'b1;
+
+		if (hcounter >= 656 && hcounter < 752) 
+			hsync <= 1'b0;
+		else
+			hsync <= 1'b1;
 	end
-	
-	// generate sync pulses
-	assign h_sync = ~(h_counter <= 96);
-	assign v_sync = ~(v_counter <= 2);
-	
-	assign scan_x = h_counter + 48;
-	assign scan_y = v_counter + 33;
 
 endmodule
