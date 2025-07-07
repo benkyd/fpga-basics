@@ -2,7 +2,9 @@
 +incdir+/home/benk/projects/fpga-basics/Max10_VGA
 +incdir+/home/benk/projects/fpga-basics/Max1000 Template
 +incdir+/home/benk/projects/fpga-basics/Verilator_Tests/clk
++incdir+/home/benk/projects/fpga-basics/Verilator_Tests/spi
 +incdir+/home/benk/projects/fpga-basics/Max10_RT
 +incdir+/home/benk/projects/fpga-basics/Max10_VGA
 +incdir+/home/benk/projects/fpga-basics/Max1000 Template
 +incdir+/home/benk/projects/fpga-basics/Verilator_Tests/clk
++incdir+/home/benk/projects/fpga-basics/Verilator_Tests/spi
