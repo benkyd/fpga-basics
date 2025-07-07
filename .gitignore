@@ -4,3 +4,5 @@ build/
 bin/
 .obj_dir/
 obj_dir/
+.nvim/
+.cache/

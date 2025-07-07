@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
     tfp->open("wave.vcd");
 
     int clk = 0;
-    for (int time = 0; time < 500; time++) {
+    for (int time = 0; time < 50000; time++) {
         // Toggle clk every 20 time units (simulate 25 MHz)
         if ((time % 20) == 0)
             clk = !clk;

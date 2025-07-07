@@ -1,6 +1,15 @@
 module top (
     input clk_25mhz,
-    output [3:0] led
+
+    output h_sync,
+    output v_sync,
+
+
+    output [3:0] r,
+    output [3:0] g,
+    output [3:0] b
 );
-    assign led[0] = clk_25mhz;
+
+    
+
 endmodule
