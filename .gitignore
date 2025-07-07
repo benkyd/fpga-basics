@@ -2,3 +2,4 @@ Blink/
 max1000_template/
 build/
 bin/
+.obj_dir/
